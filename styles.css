@@ -1,0 +1,145 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.header{
+background-color: lightblue;
+padding: 20px 0;
+}
+
+.ID {
+  margin: 30px auto;
+  height: 40px;
+}
+
+.label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 20px;
+  margin-right: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 30px;
+  background-color: #fff;
+}
+
+#cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 0;
+  justify-content: center;
+}
+
+.card {
+  cursor: pointer;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card img {
+  max-width: 300px;
+  max-height: auto;
+}
+
+.card.selected {
+  border: 2px solid #4CAF50; /* Green border for selected cards */
+}
+
+#selectedImagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* 控制圖片之間的間距 */
+}
+
+.selectedImagesArea{
+background-color: lightblue;
+padding: 20px 0;
+margin: 20px 0;
+}
+
+.selectedImagesArea h2{
+font-size: 30px;
+padding: 20px 0;
+}
+
+#selectedImagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* 控制圖片之間的間距 */
+  justify-content: center;
+}
+
+.selectedImage {
+  width: 200px; /* 設置父容器的固定寬度 */
+  height: 300px; /* 設置父容器的固定高度 */
+  overflow: hidden; /* 隱藏超出父容器的部分 */
+}
+
+.selectedImage img {
+  width: 100%; /* 使用百分比以填滿父容器 */
+  height: 100%; /* 使用百分比以填滿父容器 */
+  object-fit: cover; /* 確保圖片保持原始寬高比例並填滿容器 */
+}
+
+.removeImageBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 0.7;
+  z-index: 2; /* 新增這一行 */
+}
+
+/* 將 input 和 button 置中 */
+input,
+button {
+  display: block;
+  margin: 0 auto;
+}
+
+.submitbtn {
+font-size: 20px;
+padding: 10px 20px;
+
+}
