@@ -31,10 +31,7 @@ function myFunction() {
     if (buttonGroups2.style.display === "none" || buttonGroups2.style.display === "") {
         // 如果是隐藏的，则显示
         buttonGroups2.style.display = "block";
-    } else {
-        // 如果是显示的，则隐藏
-        buttonGroups2.style.display = "none";
-    }
+    } 
 }
 
 
