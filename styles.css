@@ -39,6 +39,16 @@ background-color: lightblue;
 padding: 20px 0;
 }
 
+  /* 隱藏所有的按鈕 */
+  .buttonGroups .label {
+    display: none;
+  }
+
+  /* 顯示被點擊標籤對應的按鈕 */
+  .header .label:target {
+    display: inline-block;
+  }
+
 .ID {
   margin: 30px auto;
   height: 40px;

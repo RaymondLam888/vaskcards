@@ -23,6 +23,21 @@ function showCards(tag) {
     }
 }
 
+function myFunction() {
+    // 获取 buttonGroups2 元素
+    const buttonGroups2 = document.getElementById("buttonGroups2");
+
+    // 判断当前的 display 状态
+    if (buttonGroups2.style.display === "none" || buttonGroups2.style.display === "") {
+        // 如果是隐藏的，则显示
+        buttonGroups2.style.display = "block";
+    } else {
+        // 如果是显示的，则隐藏
+        buttonGroups2.style.display = "none";
+    }
+}
+
+
 function createCard(src, alt, id) {
     const card = document.createElement('div');
     card.classList.add('card');

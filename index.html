@@ -11,12 +11,14 @@
 <body>
   <div class="header">
     <input class="ID" type="text" id="employeeId" placeholder="同工編號">
-    
+  
     <!-- 4個標籤 -->
-    <div class="label" onclick="showCards('V')">V</div>
-    <div class="label" onclick="showCards('A')">A</div>
-    <div class="label" onclick="showCards('S')">S</div>
-    <div class="label" onclick="showCards('K')">K</div>
+    <div id="buttonGroups1" onclick="myFunction()">
+      <div class="label" onclick="showCards('V')">V</div>
+      <div class="label" onclick="showCards('A')">A</div>
+      <div class="label" onclick="showCards('S')">S</div>
+      <div class="label" onclick="showCards('K')">K</div>
+    </div>
   </div>
     <!-- 卡片組合區域 -->
     <div id="cardContainer"></div>
@@ -190,11 +192,12 @@
         </div>
     </div>
   
-    <!-- 4個標籤 -->
-    <div class="label" onclick="showCards('V')">V</div>
-    <div class="label" onclick="showCards('A')">A</div>
-    <div class="label" onclick="showCards('S')">S</div>
-    <div class="label" onclick="showCards('K')">K</div>
+    <div id="buttonGroups2" style="display: none;">
+      <div class="label" onclick="showCards('V')">V</div>
+      <div class="label" onclick="showCards('A')">A</div>
+      <div class="label" onclick="showCards('S')">S</div>
+      <div class="label" onclick="showCards('K')">K</div>
+  </div>
 
   <div class="selectedImagesArea">
     <div id="selectedImagesHeader">
@@ -211,4 +214,4 @@
 
   
 </body>
-
+</html>
