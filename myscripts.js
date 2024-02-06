@@ -215,10 +215,6 @@ function toggleSelectedImagesArea() {
     selectedImagesArea.style.display = selectedImagesArea.style.display === 'none' ? 'block' : 'none';
 }
 
-
-
-
-
   function downloadExcel() {
     const employeeId = document.getElementById('employeeId').value;
     const selectedCardIdsArray = Array.from(selectedCardIds); // Convert Set to Array

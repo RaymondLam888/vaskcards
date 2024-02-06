@@ -135,13 +135,15 @@ body {
 }
 
 .selectedImagesArea{
-background-color: lightblue;
-padding: 20px 0;
+  background-color: lightblue;
+  padding: 20px 0;
+  max-height: 300px; /* 這裡可以根據需要調整最大高度 */
+  overflow-y: auto; /* 讓容器在需要時顯示垂直滾動條 */
 }
 
 .selectedImagesArea h2{
-font-size: 30px;
-padding: 20px 0;
+  font-size: 30px;
+  padding: 20px 0;
 }
 
 #selectedImagesContainer {
