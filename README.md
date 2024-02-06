@@ -41,7 +41,3 @@
 ![V-才能應用](https://github.com/RaymondLam888/vaskcards/assets/106653257/d03a8f7d-bf48-447a-af6b-da0bd8ed8711)
 ![V-安全感](https://github.com/RaymondLam888/vaskcards/assets/106653257/d1b0532d-5e79-4671-aee0-bbb751c4b599)
 ![V-安全的工作環境](https://github.com/RaymondLam888/vaskcards/assets/106653257/dee451fc-3078-4e2e-bfde-5035ec494150)
-
-
-###A###
-
