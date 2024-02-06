@@ -34,20 +34,55 @@ body {
   text-align: center;
 }
 
-.header{
-background-color: lightblue;
-padding: 20px 0;
+.header {
+  background-color: #FFF3F3;
+  padding-top: 300px; /* 注意：這裡的填充會影響背景圖片的顯示 */
+  padding-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: top 0.3s;
+  height: 100px; /* 如果要讓 .header 的高度為 100px，請確保填充不會影響這個高度 */
+  z-index: 1000;
+  background-image: url(https://github.com/RaymondLam888/vaskcards/assets/106653257/fc6a3ff2-240d-4896-8054-4c3458066a26);
+  background-repeat: no-repeat;
+  background-size: contain; /* 讓背景圖片完全包含在 .header 內 */
+  background-position: center; /* 將背景圖片置中 */
 }
 
-  /* 隱藏所有的按鈕 */
-  .buttonGroups .label {
-    display: none;
-  }
 
-  /* 顯示被點擊標籤對應的按鈕 */
-  .header .label:target {
-    display: inline-block;
-  }
+.ID{
+  text-align: center;
+}
+
+.showimage{
+  background-color: lightblue; 
+  padding: 20px 0;
+}
+
+#toggleSelectedImagesButton{
+  background-color: lightblue; 
+  width: 400px;
+  height: 30px;
+  font-size: 20px;
+  border: 0px solid #000;
+}
+
+#buttonGroups1{
+  background-color: lightblue;  
+  padding-bottom: 20px;
+}
+
+/* 隱藏所有的按鈕 */
+.buttonGroups1 .label {
+  display: none;
+}
+
+/* 顯示被點擊標籤對應的按鈕 */
+.header .label:target {
+  display: inline-block;
+}
 
 .ID {
   margin: 30px auto;
@@ -61,8 +96,10 @@ padding: 20px 0;
   margin-right: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 30px;
+  font-size: 20px; /* 調整字體大小 */
   background-color: #fff;
+  text-align: center; /* 文字置中 */
+  font-weight: 800;
 }
 
 #cardContainer {
@@ -70,6 +107,7 @@ padding: 20px 0;
   flex-wrap: wrap;
   margin: 50px 0;
   justify-content: center;
+  padding-top: 500px;
 }
 
 .card {
@@ -99,7 +137,6 @@ padding: 20px 0;
 .selectedImagesArea{
 background-color: lightblue;
 padding: 20px 0;
-margin: 20px 0;
 }
 
 .selectedImagesArea h2{
@@ -124,6 +161,8 @@ padding: 20px 0;
   width: 100%; /* 使用百分比以填滿父容器 */
   height: 100%; /* 使用百分比以填滿父容器 */
   object-fit: cover; /* 確保圖片保持原始寬高比例並填滿容器 */
+  overflow: hidden;
+  position: relative;
 }
 
 .removeImageBtn {
@@ -136,10 +175,21 @@ padding: 20px 0;
   border: none;
   padding: 5px;
   border-radius: 50%;
-  font-size: 12px;
-  line-height: 0.7;
+  font-size: 14px;
+  line-height: 1;
   z-index: 2; /* 新增這一行 */
 }
+
+
+.footer{
+  display: flex; /* 將 .footer 設置為 flex 容器 */
+  align-items: center; /* 將內容垂直置中 */
+  justify-content: center; /* 將內容水平置中 */
+  align-content: center;
+  background-color: lightblue;
+  padding: 20px 0;
+}
+
 
 /* 將 input 和 button 置中 */
 input,
@@ -149,7 +199,13 @@ button {
 }
 
 .submitbtn {
-font-size: 20px;
-padding: 10px 20px;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 200px;
+}
 
+.DownloadExel{
+  font-size: 20px;
+  padding: 10px 20px; 
+  width: 200px;
 }

@@ -23,16 +23,16 @@ function showCards(tag) {
     }
 }
 
-function myFunction() {
-    // 获取 buttonGroups2 元素
-    const buttonGroups2 = document.getElementById("buttonGroups2");
+// function myFunction() {
+//     // 获取 buttonGroups2 元素
+//     const buttonGroups2 = document.getElementById("buttonGroups2");
 
-    // 判断当前的 display 状态
-    if (buttonGroups2.style.display === "none" || buttonGroups2.style.display === "") {
-        // 如果是隐藏的，则显示
-        buttonGroups2.style.display = "block";
-    } 
-}
+//     // 判断当前的 display 状态
+//     if (buttonGroups2.style.display === "none" || buttonGroups2.style.display === "") {
+//         // 如果是隐藏的，则显示
+//         buttonGroups2.style.display = "block";
+//     } 
+// }
 
 
 function createCard(src, alt, id) {
@@ -70,14 +70,24 @@ function toggleCardSelection(card) {
         // 如果已經存在，表示取消選擇
         selectedCardIds.delete(id);
         card.classList.remove('selected');
+
+        // 移除相應的 .selected class
+        const selectedImage = document.querySelector(`.selectedImage[data-id="${id}"]`);
+        if (selectedImage) {
+            selectedImage.remove();
+        }
     } else {
         // 如果不存在，表示新增選擇
         selectedCardIds.add(id);
         card.classList.add('selected');
+        const selectedImage = createSelectedImage(card.querySelector('img').src, id);
+        document.getElementById('selectedImagesContainer').appendChild(selectedImage);
     }
 
     updateSelectedImagesDisplay();
 }
+
+
 
 function updateSelectedImagesDisplay() {
     const selectedImagesContainer = document.getElementById('selectedImagesContainer');
@@ -113,29 +123,23 @@ function createSelectedImage(src, id) {
 }
 
 function removeSelectedImage(id) {
-    // 在這裡處理移除選擇的邏輯
-    // 你可以根據需要進行相應的操作
-
-    // 在這個範例中，我們從 selectedCardIds 中刪除該 ID
-    if (selectedCardIds.has(id)) {
-        selectedCardIds.delete(id);
-    }
-
-    // 移除選擇圖片的 DOM 元素
     const selectedImage = document.querySelector(`.selectedImage[data-id="${id}"]`);
     if (selectedImage) {
-        selectedImage.remove();
+        selectedImage.parentNode.removeChild(selectedImage);
         console.log(`Successfully removed selected image with ID: ${id}`);
 
-        // 移除相應的 .selected class
         const selectedCard = document.querySelector(`#cardContainer .card[data-id="${id}"]`);
         if (selectedCard) {
             selectedCard.classList.remove('selected');
         }
+
+        // 使用 Set 的 delete 方法來刪除 ID
+        selectedCardIds.delete(id);
     } else {
         console.log(`Could not find element with ID ${id} to remove.`);
     }
 }
+
 
 function restoreSelectedCards() {
     // 使用 Set 的 forEach 來處理每個選取的 ID
@@ -160,20 +164,59 @@ function markSelectedCards() {
 }
 
 function submitSelection() {
-    // 在這裡處理提交選擇的邏輯
-    // 可以獲取同工編號和選擇的卡片資訊，然後進行後續操作
     const employeeId = document.getElementById('employeeId').value;
     console.log('Employee ID:', employeeId);
 
-    // 獲取選擇的卡片資訊，這裡只是一個範例
-    const selectedCards = document.querySelectorAll('#cardContainer .card.selected');
-    selectedCards.forEach(card => {
-        const cardId = card.dataset.id;  // 這裡的 dataset.id 根據實際情況修改
-        console.log(`Selected Card ID: ${cardId}`);
-    });
+    // 使用 map 函數簡化獲取選擇的卡片 ID
+    const selectedCardIds = Array.from(document.querySelectorAll('#cardContainer .card.selected')).map(card => card.dataset.id);
+    console.log('Selected Card IDs:', selectedCardIds);
 
     // 在這裡添加實際的提交邏輯
 }
+
+let isTagOpen = false;
+const header = document.querySelector('.header');
+const headerHeight = header.clientHeight; // 獲取 .header 的高度
+
+function toggleTag() {
+    isTagOpen = !isTagOpen;
+
+    var contentContainer = document.querySelector('.content-container');
+
+    if (isTagOpen) {
+        header.style.top = `-${headerHeight}px`;
+        contentContainer.style.marginTop = `${headerHeight}px`;
+    } else {
+        header.style.top = '0';
+        contentContainer.style.marginTop = '0';
+    }
+}
+
+window.addEventListener('scroll', function() {
+    var scrollPosition = window.scrollY;
+
+    if (!isTagOpen) {
+        header.style.top = `-${Math.min(scrollPosition, headerHeight)}px`;
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // 頁面載入完成後不再隱藏選取圖片的區域，而是在需要時再切換顯示與隱藏
+    const toggleButton = document.getElementById('toggleSelectedImagesButton');
+
+    if (toggleButton) {
+        toggleButton.addEventListener('click', toggleSelectedImagesArea);
+    }
+});
+
+function toggleSelectedImagesArea() {
+    // 切換選取圖片的區域的顯示與隱藏
+    const selectedImagesArea = document.querySelector('.selectedImagesArea');
+    selectedImagesArea.style.display = selectedImagesArea.style.display === 'none' ? 'block' : 'none';
+}
+
+
+
 
 
   function downloadExcel() {
@@ -189,4 +232,3 @@ function submitSelection() {
     // 下載 Excel 檔案
     XLSX.writeFile(wb, 'selection_data.xlsx');
 }
-
