@@ -1,4 +1,4 @@
-### V ###
+###V###
 ![V-遵循傳統](https://github.com/RaymondLam888/vaskcards/assets/106653257/6478622c-3635-45eb-8528-1615efa7cdf5)
 ![V-遵從](https://github.com/RaymondLam888/vaskcards/assets/106653257/ac8112d9-89f7-4dc3-86ef-acd3129e786e)
 ![V-自由](https://github.com/RaymondLam888/vaskcards/assets/106653257/14b7c5be-8a2d-4d51-82ea-cf502bc79d05)
@@ -43,5 +43,5 @@
 ![V-安全的工作環境](https://github.com/RaymondLam888/vaskcards/assets/106653257/dee451fc-3078-4e2e-bfde-5035ec494150)
 
 
-### A ###
+###A###
 
