@@ -35,8 +35,13 @@ body {
 }
 
 .header{
-background-color: lightblue;
-padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: lightblue;
+  padding: 20px 0; /* 這裡可以根據需要進行調整 */
+  z-index: 1000;
 }
 
   /* 隱藏所有的按鈕 */
@@ -70,6 +75,7 @@ padding: 20px 0;
   flex-wrap: wrap;
   margin: 50px 0;
   justify-content: center;
+  position: relative;
 }
 
 .card {
@@ -94,11 +100,12 @@ padding: 20px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 10px; /* 控制圖片之間的間距 */
+  padding: 0 10px;
 }
 
 .selectedImagesArea{
   background-color: lightblue;
-  padding: 20px 0;
+  padding: 20px 0; /* 這裡可以根據需要進行調整 */
   margin: 20px 0;
   display: flex;
   justify-content: center;
@@ -143,6 +150,17 @@ padding: 20px 0;
   z-index: 2; /* 新增這一行 */
 }
 
+
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: lightblue;
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
 /* 將 input 和 button 置中 */
 input,
 button {
@@ -150,8 +168,14 @@ button {
   margin: 0 auto;
 }
 
-.submitbtn {
-font-size: 20px;
-padding: 10px 20px;
+.submitbtn{
+  font-size: 18px;
+  width: 200px;
+  height: 50px;
+}
 
+.downloadExcel{
+  font-size: 18px;
+  width: 200px;
+  height: 50px;
 }

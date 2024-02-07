@@ -23,17 +23,6 @@ function showCards(tag) {
     }
 }
 
-function myFunction() {
-    // 获取 buttonGroups2 元素
-    const buttonGroups2 = document.getElementById("buttonGroups2");
-
-    // 判断当前的 display 状态
-    if (buttonGroups2.style.display === "none" || buttonGroups2.style.display === "") {
-        // 如果是隐藏的，则显示
-        buttonGroups2.style.display = "block";
-    } 
-}
-
 
 function createCard(src, alt, id) {
     const card = document.createElement('div');
@@ -76,8 +65,20 @@ function toggleCardSelection(card) {
         card.classList.add('selected');
     }
 
+    // 更新選取圖片後的顯示
     updateSelectedImagesDisplay();
+
+    // 調整區塊的 padding-top
+    adjustPadding();
 }
+
+function adjustPadding() {
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const distance = 20; // 調整 header 下方與 images 之間的距離
+    document.getElementById('cardContainer').style.paddingTop = `${headerHeight + distance}px`;
+}
+
+
 
 function updateSelectedImagesDisplay() {
     const selectedImagesContainer = document.getElementById('selectedImagesContainer');
@@ -132,10 +133,14 @@ function removeSelectedImage(id) {
         if (selectedCard) {
             selectedCard.classList.remove('selected');
         }
+
+        // 更新 padding-top
+        adjustPadding(); // 在此處調用 adjustPadding() 函數
     } else {
         console.log(`Could not find element with ID ${id} to remove.`);
     }
 }
+
 
 function restoreSelectedCards() {
     // 使用 Set 的 forEach 來處理每個選取的 ID
@@ -175,30 +180,67 @@ function submitSelection() {
     // 在這裡添加實際的提交邏輯
 }
 
+// 監聽視窗大小變化事件，並重新計算圖片大小
 window.addEventListener('resize', function() {
+    updateSelectedImagesSize();
+});
+
+// 在頁面載入完成後，立即執行一次更新圖片大小的函數
+window.addEventListener('load', function() {
+    updateSelectedImagesSize();
+});
+
+function updateSelectedImagesSize() {
     const containerWidth = document.getElementById('selectedImagesContainer').offsetWidth;
     const totalImagesWidth = getTotalImagesWidth();
     const images = document.querySelectorAll('.selectedImage img');
-  
-    if (totalImagesWidth > containerWidth) {
-      const scaleFactor = containerWidth / totalImagesWidth;
-      images.forEach(image => {
+
+    // 讓圖片寬度保持在容器的一定比例內
+    const scaleFactor = containerWidth / totalImagesWidth;
+    images.forEach(image => {
         image.style.width = `${scaleFactor * 100}%`;
-      });
-    } else {
-      images.forEach(image => {
-        image.style.width = 'auto';
-      });
-    }
-});
+    });
+}
 
 function getTotalImagesWidth() {
     const images = document.querySelectorAll('.selectedImage');
     let totalWidth = 0;
     images.forEach(image => {
-      totalWidth += image.offsetWidth;
+        totalWidth += image.offsetWidth;
     });
     return totalWidth;
+}
+
+window.addEventListener('load', function() {
+    // 當頁面完全加載後，執行一次調整 padding 的函數
+    adjustPadding();
+});
+
+function toggleCardSelection(card) {
+    const id = card.dataset.id;  // 獲取卡片的 ID
+
+    // 檢查 ID 是否已經存在於集合中
+    if (selectedCardIds.has(id)) {
+        // 如果已經存在，表示取消選擇
+        selectedCardIds.delete(id);
+        card.classList.remove('selected');
+    } else {
+        // 如果不存在，表示新增選擇
+        selectedCardIds.add(id);
+        card.classList.add('selected');
+    }
+
+    // 更新選取圖片後的顯示
+    updateSelectedImagesDisplay();
+
+    // 調整區塊的 padding-top
+    adjustPadding();
+}
+
+function adjustPadding() {
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const distance = 20; // 調整 header 下方與 images 之間的距離
+    document.getElementById('cardContainer').style.paddingTop = `${headerHeight + distance}px`;
 }
 
 

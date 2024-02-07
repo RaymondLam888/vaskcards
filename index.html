@@ -27,6 +27,7 @@
       <div class="label" onclick="showCards('K')">K</div>
     </div>
   </div>
+  
     <!-- 卡片組合區域 -->
     <div id="cardContainer"></div>
 
@@ -199,16 +200,11 @@
         </div>
     </div>
   
-    <div id="buttonGroups2" style="display: none;">
-      <div class="label" onclick="showCards('V')">V</div>
-      <div class="label" onclick="showCards('A')">A</div>
-      <div class="label" onclick="showCards('S')">S</div>
-      <div class="label" onclick="showCards('K')">K</div>
-  </div>
-  
     <!-- 提交按鈕 -->
-    <button class="submitbtn" onclick="submitSelection()">Submit</button>
-<button onclick="downloadExcel()">Download Excel</button>
+    <div class="footer">
+      <button class="submitbtn" onclick="submitSelection()">Submit</button>
+      <button class="downloadExcel" onclick="downloadExcel()">Download Excel</button>
+    </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
 
