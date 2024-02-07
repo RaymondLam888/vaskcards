@@ -11,18 +11,13 @@
 <body>
   <div class="header">
     <input class="ID" type="text" id="employeeId" placeholder="同工編號">
-
-    <!-- 用於觸發展示區域的按鈕 -->
-    <div class="showimage">
-      <button id="toggleSelectedImagesButton" onclick="toggleSelectedImagesArea()">>>>展示選擇的VASK<<< </button>
-    </div>
-
-    <!-- 展示區域 -->
-    <div class="selectedImagesArea" style="display: none;">
+  
+    <div class="selectedImagesArea">
       <div id="selectedImagesHeader">
-          <div id="selectedImagesContainer"></div>
-      </div>
+      <h2>我的個人VASK</h2>
+      <div id="selectedImagesContainer"></div>
     </div>
+  </div>
 
     <!-- 4個標籤 -->
     <div id="buttonGroups1" onclick="myFunction()">
@@ -31,187 +26,189 @@
       <div class="label" onclick="showCards('S')">S</div>
       <div class="label" onclick="showCards('K')">K</div>
     </div>
-
-
-</div>
-
+  </div>
     <!-- 卡片組合區域 -->
     <div id="cardContainer"></div>
 
     <!-- 不同組合的圖片 -->
     <div id="images" style="display: none;">
         <div data-tag="V">
-            <img data-id="V-才能應用" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d03a8f7d-bf48-447a-af6b-da0bd8ed8711" alt="">
-            <img data-id="V-公平" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7f95c141-bf1f-447b-a72c-2d704550ca47" alt="">
-            <img data-id="V-忠誠" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/f7732212-7170-46b8-9c04-a3d4359cf491" alt="">
-            <img data-id="V-自我肯定" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/0d264a5f-a253-4051-af40-9e9a53e6260a" alt="">
-            <img data-id="V-成就感" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/f0cc3e31-5804-49d6-9f31-13f3aae881b8" alt="">
-            <img data-id="V-自由" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/14b7c5be-8a2d-4d51-82ea-cf502bc79d05" alt="">
-            <img data-id="V-個人的全面發展" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/bbadace4-c501-46e0-8677-69fa0d9a59e9" alt="">
-            <img data-id="V-在工作上創造美好事物" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/df42e58b-df35-4cd4-883e-e72a722fdc32" alt="">
-            <img data-id="V-身心健康" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/482f2888-8343-43b7-8cc3-68f58c7bf738" alt="">
-            <img data-id="V-權力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6cc73be9-3b0a-483e-bdb3-2e39774b4173" alt="">
-            <img data-id="V-信仰" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c4fcab37-13d4-488b-ac90-6929f32f27bb" alt="">
-            <img data-id="V-歸屬感" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/64da6d76-5e79-48df-8bd9-a9174cd23b45" alt="">
-            <img data-id="V-誠實" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e6876d49-5686-420a-8536-abec3d8e9609" alt="">
-            <img data-id="V-個人聲望" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d646a3b9-7f99-4fa3-a93e-eeb3beeadebc" alt="">
-            <img data-id="V-刺激的生活" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/dc8899f9-bb97-4880-b327-638751454332" alt="">
-            <img data-id="V-關心他人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/851320f7-2e00-439c-b2e1-607f44230e83" alt="">
-            <img data-id="V-謙卑" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9cf32e1e-32d9-43d5-a1a9-47b101df48aa" alt="">
-            <img data-id="V-隱私" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6c488a5b-7feb-449b-82a3-c84f24789e53" alt="">
-            <img data-id="V-重視與上司的關係" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/89a942f9-de23-42b1-ba70-7dadbbbc45f4" alt="">
-            <img data-id="V-環保" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/da890612-1739-4c7f-b3c1-b135992fc50d" alt="">
-            <img data-id="V-獨立" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/bad059cc-d7d4-4245-8c1c-7777b226be97" alt="">
-            <img data-id="V-在意與工作夥伴的關係" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8817ab44-2f39-429b-b436-88a9b7a0f7a9" alt="">
-            <img data-id="V-遵循傳統" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6478622c-3635-45eb-8528-1615efa7cdf5" alt="">
-            <img data-id="V-遵從" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ac8112d9-89f7-4dc3-86ef-acd3129e786e" alt="">
-            <img data-id="V-內心平靜" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4583c4fe-b6a9-4ade-b9b7-9963d2f480cf" alt="">
-            <img data-id="V-責任感" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/79959839-6589-4235-902a-994d88729659" alt="">
-            <img data-id="V-友誼" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e9c25bb3-9d43-448d-ae9f-78646d30ff7d" alt="">
-            <img data-id="V-創意" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/fcb642e3-2d87-4a45-879a-922d5f52943a" alt="">
-            <img data-id="V-互相依靠" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2fe7cf5d-faea-48a8-af31-972289003d3a" alt="">
-            <img data-id="V-冒險" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/930dd6fd-c1a2-43b2-9d3f-1f8333a040db" alt="">
-            <img data-id="V-工作的多樣性" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7be4432e-450b-444e-9560-deddae048dc2" alt="">
-            <img data-id="V-經濟回報" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/327025ad-5c3b-4721-a949-711d62ab5170" alt="">
-            <img data-id="V-仁慈" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/20ccddaf-1cca-48e1-8bad-c64ad0362afd" alt="">
-            <img data-id="V-安全感" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d1b0532d-5e79-4671-aee0-bbb751c4b599" alt="">
-            <img data-id="V-智慧" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/455736f9-f782-43a9-a341-a2e76c2abed7" alt="">
-            <img data-id="V-平等" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7d9d0329-a77e-494b-9c6e-6d4008e8cde6" alt="">
-            <img data-id="V-選擇個人生活方式" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/db5ef2b7-a943-4f88-b19c-680ff2230574" alt="">
-            <img data-id="V-自律" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6eafefa7-c3e6-4564-871d-009f42c96ab7" alt="">
-            <img data-id="V-安全的工作環境" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/dee451fc-3078-4e2e-bfde-5035ec494150" alt="">
-            <img data-id="V-舒適的生活" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6be573d5-9837-46ee-a06f-158e9b56e6cc" alt="">
-            <img data-id="V-世界和平" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/15030d5d-70fd-4c26-b896-3694bfbdb40d" alt="">
+          <img data-id="V-才能應用" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d03a8f7d-bf48-447a-af6b-da0bd8ed8711" alt="">
+          <img data-id="V-公平" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7f95c141-bf1f-447b-a72c-2d704550ca47" alt="">
+          <img data-id="V-忠誠" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/f7732212-7170-46b8-9c04-a3d4359cf491" alt="">
+          <img data-id="V-自我肯定" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/0d264a5f-a253-4051-af40-9e9a53e6260a" alt="">
+          <img data-id="V-成就感" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/f0cc3e31-5804-49d6-9f31-13f3aae881b8" alt="">
+          <img data-id="V-自由" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/14b7c5be-8a2d-4d51-82ea-cf502bc79d05" alt="">
+          <img data-id="V-個人的全面發展" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/bbadace4-c501-46e0-8677-69fa0d9a59e9" alt="">
+          <img data-id="V-在工作上創造美好事物" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/df42e58b-df35-4cd4-883e-e72a722fdc32" alt="">
+          <img data-id="V-身心健康" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/482f2888-8343-43b7-8cc3-68f58c7bf738" alt="">
+          <img data-id="V-權力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6cc73be9-3b0a-483e-bdb3-2e39774b4173" alt="">
+          <img data-id="V-信仰" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c4fcab37-13d4-488b-ac90-6929f32f27bb" alt="">
+          <img data-id="V-歸屬感" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/64da6d76-5e79-48df-8bd9-a9174cd23b45" alt="">
+          <img data-id="V-誠實" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e6876d49-5686-420a-8536-abec3d8e9609" alt="">
+          <img data-id="V-個人聲望" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d646a3b9-7f99-4fa3-a93e-eeb3beeadebc" alt="">
+          <img data-id="V-刺激的生活" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/dc8899f9-bb97-4880-b327-638751454332" alt="">
+          <img data-id="V-關心他人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/851320f7-2e00-439c-b2e1-607f44230e83" alt="">
+          <img data-id="V-謙卑" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9cf32e1e-32d9-43d5-a1a9-47b101df48aa" alt="">
+          <img data-id="V-隱私" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6c488a5b-7feb-449b-82a3-c84f24789e53" alt="">
+          <img data-id="V-重視與上司的關係" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/89a942f9-de23-42b1-ba70-7dadbbbc45f4" alt="">
+          <img data-id="V-環保" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/da890612-1739-4c7f-b3c1-b135992fc50d" alt="">
+          <img data-id="V-獨立" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/bad059cc-d7d4-4245-8c1c-7777b226be97" alt="">
+          <img data-id="V-在意與工作夥伴的關係" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8817ab44-2f39-429b-b436-88a9b7a0f7a9" alt="">
+          <img data-id="V-遵循傳統" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6478622c-3635-45eb-8528-1615efa7cdf5" alt="">
+          <img data-id="V-遵從" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ac8112d9-89f7-4dc3-86ef-acd3129e786e" alt="">
+          <img data-id="V-內心平靜" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4583c4fe-b6a9-4ade-b9b7-9963d2f480cf" alt="">
+          <img data-id="V-責任感" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/79959839-6589-4235-902a-994d88729659" alt="">
+          <img data-id="V-友誼" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e9c25bb3-9d43-448d-ae9f-78646d30ff7d" alt="">
+          <img data-id="V-創意" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/fcb642e3-2d87-4a45-879a-922d5f52943a" alt="">
+          <img data-id="V-互相依靠" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2fe7cf5d-faea-48a8-af31-972289003d3a" alt="">
+          <img data-id="V-冒險" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/930dd6fd-c1a2-43b2-9d3f-1f8333a040db" alt="">
+          <img data-id="V-工作的多樣性" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7be4432e-450b-444e-9560-deddae048dc2" alt="">
+          <img data-id="V-經濟回報" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/327025ad-5c3b-4721-a949-711d62ab5170" alt="">
+          <img data-id="V-仁慈" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/20ccddaf-1cca-48e1-8bad-c64ad0362afd" alt="">
+          <img data-id="V-安全感" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d1b0532d-5e79-4671-aee0-bbb751c4b599" alt="">
+          <img data-id="V-智慧" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/455736f9-f782-43a9-a341-a2e76c2abed7" alt="">
+          <img data-id="V-平等" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7d9d0329-a77e-494b-9c6e-6d4008e8cde6" alt="">
+          <img data-id="V-選擇個人生活方式" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/db5ef2b7-a943-4f88-b19c-680ff2230574" alt="">
+          <img data-id="V-自律" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6eafefa7-c3e6-4564-871d-009f42c96ab7" alt="">
+          <img data-id="V-安全的工作環境" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/dee451fc-3078-4e2e-bfde-5035ec494150" alt="">
+          <img data-id="V-舒適的生活" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6be573d5-9837-46ee-a06f-158e9b56e6cc" alt="">
+          <img data-id="V-世界和平" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/15030d5d-70fd-4c26-b896-3694bfbdb40d" alt="">
             
           <!-- 可以添加更多 V 的圖片 -->
         </div>
         <div data-tag="A">
-            <img data-id="A-注重細節" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2cbb7981-1743-43bc-bfcd-170d2dcbd631" alt="">
-            <img data-id="A-積極主動" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d056d961-9a04-4a88-9081-0a867c35fd7b" alt="">
-            <img data-id="A-準確" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7b7c0422-0e8d-4a3b-838c-415f77c1f487" alt="">
-            <img data-id="A-富同情心" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/108059a1-4ff2-4a28-ab5f-c6ac62394002" alt="">
-            <img data-id="A-富好奇心" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b28bf00b-f7ab-4f4a-8786-171c88e8277b" alt="">
-            <img data-id="A-積極正面" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/578aaaba-8c76-42d1-8662-a571596f39d2" alt="">
-            <img data-id="A-冷靜" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/22296b3e-4ee9-4443-a3b1-41adcb127440" alt="">
-            <img data-id="A-靈活彈性" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ec72f65a-6010-4bd6-9bd6-da615c66ff49" alt="">
-            <img data-id="A-樂於終身學習" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/606ca1e6-db93-4c32-878c-32f58dadc373" alt="">
-            <img data-id="A-率直" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ac5c7097-f893-4dd2-b73f-1dc6499bd352" alt="">
-            <img data-id="A-專注" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/accfa3f9-aa68-4355-8e39-ab6bf56d3568" alt="">
-            <img data-id="A-忠誠" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/aac25983-f604-4dda-88be-8cdb78bb11cb" alt="">
-            <img data-id="A-愉快" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/5851f7bb-741d-4d2d-ba77-b02396003e39" alt="">
-            <img data-id="A-友善" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/32616a82-1f92-4251-9923-b50ca2a05323" alt="">
-            <img data-id="A-成熟" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7ddc6cc0-96cf-4125-92ab-02f950d2c3aa" alt="">
-            <img data-id="A-守時" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/85baa506-1336-4692-b37e-8db4c1f418a7" alt="">
-            <img data-id="A-令人欣慰" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a02cccff-09e2-480d-8aa9-952cc8f59d1e" alt="">
-            <img data-id="A-勤力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/397ce734-d2f5-4722-b2eb-41625ee01180" alt="">
-            <img data-id="A-思想開明" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ee48750a-2f90-480d-8941-bdc6a1ef88b9" alt="">
-            <img data-id="A-嚴謹審慎" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d8728f96-02d3-4c59-9d1a-fe63702a1bf1" alt="">
-            <img data-id="A-樂於助人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/21dab260-7832-4c34-8d40-77d2c4161192" alt="">
-            <img data-id="A-樂觀" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9e373cc2-37d3-4590-b5dc-813c84bf5b2a" alt="">
-            <img data-id="A-願意合作" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/5cd5251a-1d82-4e45-b51a-795125c532a4" alt="">
-            <img data-id="A-誠實" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c660d272-2a06-4c2a-8fcf-24bb61a2fab3" alt="">
-            <img data-id="A-真誠待人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e4166610-b34a-41a5-9c83-bb00885cc138" alt="">
-            <img data-id="A-有耐性" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/20a5a9ef-74a6-42a9-b5a8-40cec2d7f62a" alt="">
-            <img data-id="A-尊重文化差異" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/574d73d2-9537-40e3-a11c-99181a4c0fad" alt="">
-            <img data-id="A-謙虛" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/948d26ce-2b1a-4ca2-adbe-805d9ffb48c3" alt="">
-            <img data-id="A-堅持不懈" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b1f91ea0-2150-4234-9be2-556f791e3926" alt="">
-            <img data-id="A-處事果斷" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/08cbfeff-bb97-4cee-a33d-a640d40067f1" alt="">
-            <img data-id="A-自信" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7748708f-c2ed-4d15-ba7b-8aa3357932a5" alt="">
-            <img data-id="A-獨立" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/668a2505-8cd5-428d-9a16-bdc730bd6114" alt="">
-            <img data-id="A-尊重他人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7cc85ff6-1681-4199-b52f-5724161158e5" alt="">
-            <img data-id="A-有禮貌" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d3162cbf-e12a-4924-bae1-da52111d7474" alt="">
+          <img data-id="A-注重細節" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2cbb7981-1743-43bc-bfcd-170d2dcbd631" alt="">
+          <img data-id="A-積極主動" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d056d961-9a04-4a88-9081-0a867c35fd7b" alt="">
+          <img data-id="A-準確" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7b7c0422-0e8d-4a3b-838c-415f77c1f487" alt="">
+          <img data-id="A-富同情心" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/108059a1-4ff2-4a28-ab5f-c6ac62394002" alt="">
+          <img data-id="A-富好奇心" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b28bf00b-f7ab-4f4a-8786-171c88e8277b" alt="">
+          <img data-id="A-積極正面" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/578aaaba-8c76-42d1-8662-a571596f39d2" alt="">
+          <img data-id="A-冷靜" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/22296b3e-4ee9-4443-a3b1-41adcb127440" alt="">
+          <img data-id="A-靈活彈性" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ec72f65a-6010-4bd6-9bd6-da615c66ff49" alt="">
+          <img data-id="A-樂於終身學習" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/606ca1e6-db93-4c32-878c-32f58dadc373" alt="">
+          <img data-id="A-率直" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ac5c7097-f893-4dd2-b73f-1dc6499bd352" alt="">
+          <img data-id="A-專注" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/accfa3f9-aa68-4355-8e39-ab6bf56d3568" alt="">
+          <img data-id="A-忠誠" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/aac25983-f604-4dda-88be-8cdb78bb11cb" alt="">
+          <img data-id="A-愉快" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/5851f7bb-741d-4d2d-ba77-b02396003e39" alt="">
+          <img data-id="A-友善" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/32616a82-1f92-4251-9923-b50ca2a05323" alt="">
+          <img data-id="A-成熟" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7ddc6cc0-96cf-4125-92ab-02f950d2c3aa" alt="">
+          <img data-id="A-守時" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/85baa506-1336-4692-b37e-8db4c1f418a7" alt="">
+          <img data-id="A-令人欣慰" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a02cccff-09e2-480d-8aa9-952cc8f59d1e" alt="">
+          <img data-id="A-勤力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/397ce734-d2f5-4722-b2eb-41625ee01180" alt="">
+          <img data-id="A-思想開明" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ee48750a-2f90-480d-8941-bdc6a1ef88b9" alt="">
+          <img data-id="A-嚴謹審慎" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d8728f96-02d3-4c59-9d1a-fe63702a1bf1" alt="">
+          <img data-id="A-樂於助人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/21dab260-7832-4c34-8d40-77d2c4161192" alt="">
+          <img data-id="A-樂觀" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9e373cc2-37d3-4590-b5dc-813c84bf5b2a" alt="">
+          <img data-id="A-願意合作" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/5cd5251a-1d82-4e45-b51a-795125c532a4" alt="">
+          <img data-id="A-誠實" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c660d272-2a06-4c2a-8fcf-24bb61a2fab3" alt="">
+          <img data-id="A-真誠待人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e4166610-b34a-41a5-9c83-bb00885cc138" alt="">
+          <img data-id="A-有耐性" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/20a5a9ef-74a6-42a9-b5a8-40cec2d7f62a" alt="">
+          <img data-id="A-尊重文化差異" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/574d73d2-9537-40e3-a11c-99181a4c0fad" alt="">
+          <img data-id="A-謙虛" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/948d26ce-2b1a-4ca2-adbe-805d9ffb48c3" alt="">
+          <img data-id="A-堅持不懈" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b1f91ea0-2150-4234-9be2-556f791e3926" alt="">
+          <img data-id="A-處事果斷" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/08cbfeff-bb97-4cee-a33d-a640d40067f1" alt="">
+          <img data-id="A-自信" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7748708f-c2ed-4d15-ba7b-8aa3357932a5" alt="">
+          <img data-id="A-獨立" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/668a2505-8cd5-428d-9a16-bdc730bd6114" alt="">
+          <img data-id="A-尊重他人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7cc85ff6-1681-4199-b52f-5724161158e5" alt="">
+          <img data-id="A-有禮貌" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d3162cbf-e12a-4924-bae1-da52111d7474" alt="">
 
             <!-- 可以添加更多 A 的圖片 -->
         </div>
         <div data-tag="S">
-            <img data-id="S-表演技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/94544596-592b-4909-ad81-5dcd25331552" alt="">
-            <img data-id="S-判斷和決策技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3ef579d5-1723-45c6-ae84-7d364c759cef" alt="">
-            <img data-id="S-語文技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c3f86877-20f4-4b18-8ab0-ca647d631fc6" alt="">
-            <img data-id="S-遊說的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/fdbd01c6-fbc6-46de-827c-c2a409eb6eaf" alt="">
-            <img data-id="S-電腦技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/aacdf215-a46d-4b53-ac76-29ff9f4db6d1" alt="">
-            <img data-id="S-書寫的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a345cc6d-dfc7-4802-ae72-0a54a7cb58aa" alt="">
-            <img data-id="S-分析/邏輯思維的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a2465b56-d431-44fa-aed4-77ced8cb324f" alt="">
-            <img data-id="S-輔導/調解的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/5725ca80-811b-4f07-a27f-dee77692b897" alt="">
-            <img data-id="S-合作協調技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6ad644b9-1832-4a16-893f-7a9036b4ae67" alt="">
-            <img data-id="S-領導技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8f68f16f-b99e-4015-9ecc-bf556c3ad7b3" alt="">
-            <img data-id="S-企劃/組織的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/70907c5b-de9e-440f-92ce-11398a482b9f" alt="">
-            <img data-id="S-教練/監察的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/676e94db-6f49-410c-a2e7-ed269168da62" alt="">
-            <img data-id="S-解難的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9a785427-b793-4cab-9516-0eec25d6ccc6" alt="">
-            <img data-id="S-財務資源管理" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d227a040-9812-430e-a883-fac68f44c077" alt="">
-            <img data-id="S-操作的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/db7cc5fa-047c-4b00-ac60-02902b278ec0" alt="">
-            <img data-id="S-物資管理" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/31b4e25b-b30a-4740-8393-4e524499ef2f" alt="">
-            <img data-id="S-閱讀理解的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/06ea807f-e09e-450f-83b3-bb68269bb10b" alt="">
-            <img data-id="S-人力管理" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/0ad0e1c3-bfed-4650-8ac9-7dba23baf084" alt="">
-            <img data-id="S-科學技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/1ecbb469-7fbd-43e5-aeaf-305375fe2531" alt="">
-            <img data-id="S-主動學習的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/04469055-413a-420e-aef4-0a422546504c" alt="">
-            <img data-id="S-創造性思維" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8434ca31-205c-4f69-8804-9a5f7e8afc1e" alt="">
-            <img data-id="S-時間管理的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2e4e1959-2dff-439e-88d0-6c30bb20b74e" alt="">
-            <img data-id="S-機械能力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b3ac84ad-5f43-4aa3-9944-5071c2086df8" alt="">
-            <img data-id="S-服務/招待技巧" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4b0de9d6-2bcd-4a3e-8de8-63b578dba49d" alt="">
-            <img data-id="S-主動傾聽的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/1db1e0c4-06a2-4b72-a3df-694e60607119" alt="">
-            <img data-id="S-批判思考" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/084e2e7c-5e9a-456f-b810-d7f1c637b420" alt="">
-            <img data-id="S-數學技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/42f0fc91-7009-451e-a0ba-4382bdf85ebc" alt="">
-            <img data-id="S-數學/培訓的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8304ab8c-2cb0-4bce-9b4d-260d184d1f23" alt="">
-            <img data-id="S-人際感知能力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3905ae8c-a52c-4143-b05c-adb1a55a3d75" alt="">
-            <img data-id="S-適應的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c319d3f5-b573-406b-a761-55919aeb162c" alt="">
-            <img data-id="S-創新的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a22f6957-9f51-4b1c-a408-c455a9fd905d" alt="">
-            <img data-id="S-口頭溝通技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/de8127f6-3ce5-4a76-bb93-3fed1d7daa68" alt="">
-            <img data-id="S-說話的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3ca78b1d-8e7e-4e1e-8da0-a8fcfbfbfcc4" alt="">
-            <img data-id="S-行政事務技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4fac482d-3f16-4965-a52c-c9d8ceeb74bc" alt="">
-            <img data-id="S-人際交往的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3d05a2dc-fc8c-435c-b48a-c1f8b3ceed66" alt="">
-            <img data-id="S-視覺感知能力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/26317c30-d3bb-4f78-89e3-239162eca882" alt="">
+          <img data-id="S-表演技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/94544596-592b-4909-ad81-5dcd25331552" alt="">
+          <img data-id="S-判斷和決策技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3ef579d5-1723-45c6-ae84-7d364c759cef" alt="">
+          <img data-id="S-語文技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c3f86877-20f4-4b18-8ab0-ca647d631fc6" alt="">
+          <img data-id="S-遊說的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/fdbd01c6-fbc6-46de-827c-c2a409eb6eaf" alt="">
+          <img data-id="S-電腦技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/aacdf215-a46d-4b53-ac76-29ff9f4db6d1" alt="">
+          <img data-id="S-書寫的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a345cc6d-dfc7-4802-ae72-0a54a7cb58aa" alt="">
+          <img data-id="S-分析/邏輯思維的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a2465b56-d431-44fa-aed4-77ced8cb324f" alt="">
+          <img data-id="S-輔導/調解的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/5725ca80-811b-4f07-a27f-dee77692b897" alt="">
+          <img data-id="S-合作協調技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6ad644b9-1832-4a16-893f-7a9036b4ae67" alt="">
+          <img data-id="S-領導技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8f68f16f-b99e-4015-9ecc-bf556c3ad7b3" alt="">
+          <img data-id="S-企劃/組織的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/70907c5b-de9e-440f-92ce-11398a482b9f" alt="">
+          <img data-id="S-教練/監察的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/676e94db-6f49-410c-a2e7-ed269168da62" alt="">
+          <img data-id="S-解難的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9a785427-b793-4cab-9516-0eec25d6ccc6" alt="">
+          <img data-id="S-財務資源管理" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d227a040-9812-430e-a883-fac68f44c077" alt="">
+          <img data-id="S-操作的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/db7cc5fa-047c-4b00-ac60-02902b278ec0" alt="">
+          <img data-id="S-物資管理" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/31b4e25b-b30a-4740-8393-4e524499ef2f" alt="">
+          <img data-id="S-閱讀理解的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/06ea807f-e09e-450f-83b3-bb68269bb10b" alt="">
+          <img data-id="S-人力管理" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/0ad0e1c3-bfed-4650-8ac9-7dba23baf084" alt="">
+          <img data-id="S-科學技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/1ecbb469-7fbd-43e5-aeaf-305375fe2531" alt="">
+          <img data-id="S-主動學習的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/04469055-413a-420e-aef4-0a422546504c" alt="">
+          <img data-id="S-創造性思維" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8434ca31-205c-4f69-8804-9a5f7e8afc1e" alt="">
+          <img data-id="S-時間管理的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2e4e1959-2dff-439e-88d0-6c30bb20b74e" alt="">
+          <img data-id="S-機械能力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b3ac84ad-5f43-4aa3-9944-5071c2086df8" alt="">
+          <img data-id="S-服務/招待技巧" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4b0de9d6-2bcd-4a3e-8de8-63b578dba49d" alt="">
+          <img data-id="S-主動傾聽的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/1db1e0c4-06a2-4b72-a3df-694e60607119" alt="">
+          <img data-id="S-批判思考" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/084e2e7c-5e9a-456f-b810-d7f1c637b420" alt="">
+          <img data-id="S-數學技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/42f0fc91-7009-451e-a0ba-4382bdf85ebc" alt="">
+          <img data-id="S-數學/培訓的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8304ab8c-2cb0-4bce-9b4d-260d184d1f23" alt="">
+          <img data-id="S-人際感知能力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3905ae8c-a52c-4143-b05c-adb1a55a3d75" alt="">
+          <img data-id="S-適應的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c319d3f5-b573-406b-a761-55919aeb162c" alt="">
+          <img data-id="S-創新的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a22f6957-9f51-4b1c-a408-c455a9fd905d" alt="">
+          <img data-id="S-口頭溝通技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/de8127f6-3ce5-4a76-bb93-3fed1d7daa68" alt="">
+          <img data-id="S-說話的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3ca78b1d-8e7e-4e1e-8da0-a8fcfbfbfcc4" alt="">
+          <img data-id="S-行政事務技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4fac482d-3f16-4965-a52c-c9d8ceeb74bc" alt="">
+          <img data-id="S-人際交往的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3d05a2dc-fc8c-435c-b48a-c1f8b3ceed66" alt="">
+          <img data-id="S-視覺感知能力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/26317c30-d3bb-4f78-89e3-239162eca882" alt="">
 
 
           
             <!-- 可以添加更多 S 的圖片 -->
         </div>
         <div data-tag="K">
-            <img data-id="K-客戶和個人服務相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a931f784-69bb-4a14-8885-25abdf029e62" alt="">
-            <img data-id="K-歷史與考古相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9c4a9c7c-b539-43fc-b7ab-91706fcaa917" alt="">
-            <img data-id="K-公共安全和保安相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/504f709c-2282-4b72-82ad-e5f8279e6463" alt="">
-            <img data-id="K-設計相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7f6d0614-6b72-477d-a3d2-ec261ea1080d" alt="">
-            <img data-id="K-法律和政府相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d1489e7a-95c6-4998-90ad-ca30a5ba76e2" alt="">
-            <img data-id="K-銷售和宣傳相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d9dbf590-566b-46f9-9d23-d234eb043d0f" alt="">
-            <img data-id="K-經濟和會計相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b720c761-9b63-415d-bc59-388f271e0f7b" alt="">
-            <img data-id="K-數學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/1d292d84-1b89-4e1e-822b-5ad29dcc957f" alt="">
-            <img data-id="K-社會學與人類學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b9d4ab83-ed30-41e0-b054-20fd4bb4cf59" alt="">
-            <img data-id="K-行政和管理相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2b1bf022-e650-44ea-88a2-e2adc578d4f8" alt="">
-            <img data-id="K-化學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4fac43d7-0db8-4893-8cf5-0ae1346fd4f4" alt="">
-            <img data-id="K-工程與科技相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/cb0b6792-2b3b-4f69-939a-4ecfb2fe0ede" alt="">
-            <img data-id="K-醫學和牙科相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6197ea46-497e-4d25-8467-abc597971b78" alt="">
-            <img data-id="K-治療及輔導相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7ff1c240-b262-4bbd-beb6-fcc747111775" alt="">
-            <img data-id="K-建築和施工相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e3e3214f-3fa6-45d3-8c81-aa0b63724392" alt="">
-            <img data-id="K-藝術相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3a532526-f644-4172-9d72-c83aba7b4a8f" alt="">
-            <img data-id="K-人事和人力資源相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/0895fab0-aa96-4fb8-88e1-dae8987217ea" alt="">
-            <img data-id="K-運輸及物流相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8aae6abe-c5b4-4acf-b9fb-18369954474d" alt="">
-            <img data-id="K-第一語言(母語)相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b258b1fc-53cc-47ac-90f4-34509e2b8a29" alt="">
-            <img data-id="K-哲學與神學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/da4b4ef4-2c7f-47b5-88ed-a302a34ecc4e" alt="">
-            <img data-id="K-由義務工作發展出的知識(請說明)*" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/5b859935-a7c1-4366-8d37-2efaa51a023f" alt="">
-            <img data-id="K-文書處理相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/96fc8178-dd4c-4c78-abb2-4757063e3a11" alt="">
-            <img data-id="K-食物生產相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/03e65a08-b85b-4282-9af6-db7ebe16b8e6" alt="">
-            <img data-id="K-物理相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/27def87e-d1aa-4d2f-8db9-3c7d4f0f566f" alt="">
-            <img data-id="K-由家庭鄰/鄰舍照顧發展出的知識(請說明)*" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/afec12aa-b6ff-4f73-98f4-a7e397e5fec6" alt="">
-            <img data-id="K-通訊及媒體相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c39e6c5d-803b-4135-8288-8a1c61850a23" alt="">
-            <img data-id="K-外語相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c02e2bb1-d12b-482b-8e0b-67a885f01955" alt="">
-            <img data-id="K-生產及加工相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ef9b78c6-b278-42f6-ae11-224937c95c07" alt="">
-            <img data-id="K-由興趣發展/專注興趣(堅趣)發展出的知識(請說明)*" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/186bc609-368f-4313-b4f9-e99f01d9aa28" alt="">
-            <img data-id="K-電腦和電子產品相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e116cbdd-9ad5-4855-bee3-c68532295a88" alt="">
-            <img data-id="K-地理相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ea079d41-34ae-4aff-9fe7-a0bcc898d285" alt="">
-            <img data-id="K-心理學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ee3ef16f-230e-43ff-bbba-dd851f30300b" alt="">
-            <img data-id="K-教育和培訓相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c2478419-e1a4-4c37-a5c0-db87f278b627" alt="">
-            <img data-id="K-機械相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/677d4138-8cef-4719-a80a-e1df9c5c06ca" alt="">
-            <img data-id="K-電子通訊相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/45a582a7-0acd-45df-9d55-bc6bb05c0b39" alt="">
+          <img data-id="K-客戶和個人服務相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a931f784-69bb-4a14-8885-25abdf029e62" alt="">
+          <img data-id="K-歷史與考古相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9c4a9c7c-b539-43fc-b7ab-91706fcaa917" alt="">
+          <img data-id="K-公共安全和保安相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/504f709c-2282-4b72-82ad-e5f8279e6463" alt="">
+          <img data-id="K-設計相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7f6d0614-6b72-477d-a3d2-ec261ea1080d" alt="">
+          <img data-id="K-法律和政府相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d1489e7a-95c6-4998-90ad-ca30a5ba76e2" alt="">
+          <img data-id="K-銷售和宣傳相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d9dbf590-566b-46f9-9d23-d234eb043d0f" alt="">
+          <img data-id="K-經濟和會計相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b720c761-9b63-415d-bc59-388f271e0f7b" alt="">
+          <img data-id="K-數學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/1d292d84-1b89-4e1e-822b-5ad29dcc957f" alt="">
+          <img data-id="K-社會學與人類學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b9d4ab83-ed30-41e0-b054-20fd4bb4cf59" alt="">
+          <img data-id="K-行政和管理相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2b1bf022-e650-44ea-88a2-e2adc578d4f8" alt="">
+          <img data-id="K-化學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4fac43d7-0db8-4893-8cf5-0ae1346fd4f4" alt="">
+          <img data-id="K-工程與科技相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/cb0b6792-2b3b-4f69-939a-4ecfb2fe0ede" alt="">
+          <img data-id="K-醫學和牙科相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6197ea46-497e-4d25-8467-abc597971b78" alt="">
+          <img data-id="K-治療及輔導相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7ff1c240-b262-4bbd-beb6-fcc747111775" alt="">
+          <img data-id="K-建築和施工相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e3e3214f-3fa6-45d3-8c81-aa0b63724392" alt="">
+          <img data-id="K-藝術相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3a532526-f644-4172-9d72-c83aba7b4a8f" alt="">
+          <img data-id="K-人事和人力資源相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/0895fab0-aa96-4fb8-88e1-dae8987217ea" alt="">
+          <img data-id="K-運輸及物流相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/8aae6abe-c5b4-4acf-b9fb-18369954474d" alt="">
+          <img data-id="K-第一語言(母語)相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/b258b1fc-53cc-47ac-90f4-34509e2b8a29" alt="">
+          <img data-id="K-哲學與神學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/da4b4ef4-2c7f-47b5-88ed-a302a34ecc4e" alt="">
+          <img data-id="K-由義務工作發展出的知識(請說明)*" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/5b859935-a7c1-4366-8d37-2efaa51a023f" alt="">
+          <img data-id="K-文書處理相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/96fc8178-dd4c-4c78-abb2-4757063e3a11" alt="">
+          <img data-id="K-食物生產相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/03e65a08-b85b-4282-9af6-db7ebe16b8e6" alt="">
+          <img data-id="K-物理相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/27def87e-d1aa-4d2f-8db9-3c7d4f0f566f" alt="">
+          <img data-id="K-由家庭鄰/鄰舍照顧發展出的知識(請說明)*" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/afec12aa-b6ff-4f73-98f4-a7e397e5fec6" alt="">
+          <img data-id="K-通訊及媒體相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c39e6c5d-803b-4135-8288-8a1c61850a23" alt="">
+          <img data-id="K-外語相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c02e2bb1-d12b-482b-8e0b-67a885f01955" alt="">
+          <img data-id="K-生產及加工相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ef9b78c6-b278-42f6-ae11-224937c95c07" alt="">
+          <img data-id="K-由興趣發展/專注興趣(堅趣)發展出的知識(請說明)*" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/186bc609-368f-4313-b4f9-e99f01d9aa28" alt="">
+          <img data-id="K-電腦和電子產品相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/e116cbdd-9ad5-4855-bee3-c68532295a88" alt="">
+          <img data-id="K-地理相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ea079d41-34ae-4aff-9fe7-a0bcc898d285" alt="">
+          <img data-id="K-心理學相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/ee3ef16f-230e-43ff-bbba-dd851f30300b" alt="">
+          <img data-id="K-教育和培訓相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c2478419-e1a4-4c37-a5c0-db87f278b627" alt="">
+          <img data-id="K-機械相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/677d4138-8cef-4719-a80a-e1df9c5c06ca" alt="">
+          <img data-id="K-電子通訊相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/45a582a7-0acd-45df-9d55-bc6bb05c0b39" alt="">
 
 
             <!-- 可以添加更多 K 的圖片 -->
         </div>
     </div>
   
+    <div id="buttonGroups2" style="display: none;">
+      <div class="label" onclick="showCards('V')">V</div>
+      <div class="label" onclick="showCards('A')">A</div>
+      <div class="label" onclick="showCards('S')">S</div>
+      <div class="label" onclick="showCards('K')">K</div>
+  </div>
+  
     <!-- 提交按鈕 -->
-    <div class="footer">
-      <button class="submitbtn" onclick="submitSelection()">Submit</button>
-      <button class="DownloadExel" onclick="downloadExcel()">Download Excel</button>
-    </div>
+    <button class="submitbtn" onclick="submitSelection()">Submit</button>
+<button onclick="downloadExcel()">Download Excel</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
 
