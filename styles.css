@@ -36,12 +36,28 @@ body {
 
 .header{
   position: fixed;
+  height: 20%;
   top: 0;
   left: 0;
   width: 100%;
   background-color: lightblue;
-  padding: 20px 0; /* 這裡可以根據需要進行調整 */
+  padding-top: 20px;
+  padding-bottom: 40px;
   z-index: 1000;
+  display: flex;
+  flex-direction: row;
+}
+
+.Information{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.staffNo{
+  padding-top: 120px;
 }
 
   /* 隱藏所有的按鈕 */
@@ -88,7 +104,7 @@ body {
 }
 
 .card img {
-  max-width: 300px;
+  max-width: 160px;
   max-height: auto;
 }
 
@@ -104,16 +120,16 @@ body {
 }
 
 .selectedImagesArea{
+  width: 70%;
+  height: 100%;
   background-color: lightblue;
-  padding: 20px 0; /* 這裡可以根據需要進行調整 */
-  margin: 20px 0;
   display: flex;
   justify-content: center;
 }
 
 .selectedImagesArea h2{
-font-size: 30px;
-padding: 20px 0;
+  font-size: 30px;
+  padding: 20px 0;
 }
 
 #selectedImagesContainer {
@@ -125,7 +141,7 @@ padding: 20px 0;
 }
 
 .selectedImage {
-  max-width: 200px; /* 卡片最大寬度 */
+  max-width: 120px; /* 卡片最大寬度 */
   margin-right: 10px; /* 卡片間距 */
 }
 
