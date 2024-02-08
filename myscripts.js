@@ -141,6 +141,23 @@ function removeSelectedImage(id) {
     }
 }
 
+function adjustPadding() {
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const desiredDistance = 40; // 設定期望的距離
+    const currentDistance = parseInt(document.getElementById('cardContainer').style.paddingTop, 10);
+    const distanceDifference = currentDistance - desiredDistance;
+    const newPaddingTop = headerHeight + desiredDistance; // 計算新的 paddingTop
+
+    document.getElementById('cardContainer').style.paddingTop = `${newPaddingTop}px`;
+
+    // 如果與期望的距離不一致，則需要調整 selectedImagesContainer 的高度
+    if (distanceDifference !== 0) {
+        const selectedImagesContainer = document.getElementById('selectedImagesContainer');
+        const currentHeight = parseInt(window.getComputedStyle(selectedImagesContainer).height, 10);
+        selectedImagesContainer.style.height = `${currentHeight - distanceDifference}px`;
+    }
+}
+
 
 function restoreSelectedCards() {
     // 使用 Set 的 forEach 來處理每個選取的 ID

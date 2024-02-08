@@ -46,6 +46,7 @@ body {
   z-index: 1000;
   display: flex;
   flex-direction: row;
+  position: relative; /* 新增這一行 */
 }
 
 .Information{
@@ -60,18 +61,13 @@ body {
   padding-top: 120px;
 }
 
-  /* 隱藏所有的按鈕 */
-  .buttonGroups .label {
-    display: none;
-  }
-
   /* 顯示被點擊標籤對應的按鈕 */
   .header .label:target {
     display: inline-block;
   }
 
 .ID {
-  margin: 30px auto;
+  margin-bottom: 30px;
   height: 40px;
 }
 
@@ -89,9 +85,9 @@ body {
 #cardContainer {
   display: flex;
   flex-wrap: wrap;
-  margin: 50px 0;
   justify-content: center;
   position: relative;
+  margin-top: -300px;
 }
 
 .card {
