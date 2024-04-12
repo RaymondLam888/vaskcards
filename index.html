@@ -4,38 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="myscripts.js"></script>
+
     <title>Login Page</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+    <script>
+    var config = {
+      apiKey: "AIzaSyDbnLHBIgpW6-xjDUOT_hGE9JCl1CQQyfo",
+      authDomain: "vask-37603.firebaseapp.com",
+      databaseURL: "https://vask-37603-default-rtdb.firebaseio.com",
+      projectId: "vask-37603",
+      storageBucket: "vask-37603.appspot.com",
+      messagingSenderId: "18930365491",
+      appId: "1:18930365491:web:97e2bb9048e12ebde2df46"
+    };
+    firebase.initializeApp(config);
+    </script> 
+    <script src="myscripts.js"></script>
 </head>
 
 <body>
+
   <div class="header">
     <div class="Information">
       <div class="staffNo">
-        <input class="ID" type="text" id="employeeId" placeholder="同工編號">
+        <div class="logo-container">
+          <img class="logo" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/111c61a3-28c0-4ca2-885d-96621aa3d01c" alt="">
+        </div>
+        <div class="inputName">
+          <p>姓名：</p>
+          <input id="employeeId" type="text" placeholder="請輸入姓名">
+        </div>
       </div>
-
-      <div id="buttonGroups1" onclick="myFunction()">
-        <div class="label" onclick="showCards('V')">V</div>
-        <div class="label" onclick="showCards('A')">A</div>
-        <div class="label" onclick="showCards('S')">S</div>
-        <div class="label" onclick="showCards('K')">K</div>
-      </div>
-  </div>
 
     <div class="selectedImagesArea">
       <div id="selectedImagesHeader">
-      <h2>我的個人VASK</h2>
+        <h2>我的個人VASK</h2>
       <div id="selectedImagesContainer"></div>
     </div>
+    </div>
+
   </div>
 
+  <div id="buttonGroups1">
+    <div class="label" onclick="showCards('V'); setActiveButton(this);">V</div>
+    <div class="label" onclick="showCards('A'); setActiveButton(this);">A</div>
+    <div class="label" onclick="showCards('S'); setActiveButton(this);">S</div>
+    <div class="label" onclick="showCards('K'); setActiveButton(this);">K</div>
+  </div>
 </div>
   
     <div id="cardContainer"></div>
 
     <div id="images" style="display: none;">
-        <div data-tag="V">
+        <div data-tag="V" class="group-container" data-group="V">
+          <div class="card" data-id="1">
           <img data-id="V-才能應用" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d03a8f7d-bf48-447a-af6b-da0bd8ed8711" alt="">
           <img data-id="V-公平" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7f95c141-bf1f-447b-a72c-2d704550ca47" alt="">
           <img data-id="V-忠誠" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/f7732212-7170-46b8-9c04-a3d4359cf491" alt="">
@@ -77,9 +100,10 @@
           <img data-id="V-安全的工作環境" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/dee451fc-3078-4e2e-bfde-5035ec494150" alt="">
           <img data-id="V-舒適的生活" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/6be573d5-9837-46ee-a06f-158e9b56e6cc" alt="">
           <img data-id="V-世界和平" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/15030d5d-70fd-4c26-b896-3694bfbdb40d" alt="">
-            
+          </div>   
         </div>
-        <div data-tag="A">
+        <div data-tag="A" class="group-container" data-group="A">
+          <div class="card" data-id="2">
           <img data-id="A-注重細節" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/2cbb7981-1743-43bc-bfcd-170d2dcbd631" alt="">
           <img data-id="A-積極主動" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d056d961-9a04-4a88-9081-0a867c35fd7b" alt="">
           <img data-id="A-準確" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7b7c0422-0e8d-4a3b-838c-415f77c1f487" alt="">
@@ -114,9 +138,10 @@
           <img data-id="A-獨立" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/668a2505-8cd5-428d-9a16-bdc730bd6114" alt="">
           <img data-id="A-尊重他人" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/7cc85ff6-1681-4199-b52f-5724161158e5" alt="">
           <img data-id="A-有禮貌" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/d3162cbf-e12a-4924-bae1-da52111d7474" alt="">
-
         </div>
-        <div data-tag="S">
+        </div>
+        <div data-tag="S" class="group-container" data-group="S">
+          <div class="card" data-id="3">
           <img data-id="S-表演技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/94544596-592b-4909-ad81-5dcd25331552" alt="">
           <img data-id="S-判斷和決策技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3ef579d5-1723-45c6-ae84-7d364c759cef" alt="">
           <img data-id="S-語文技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c3f86877-20f4-4b18-8ab0-ca647d631fc6" alt="">
@@ -153,10 +178,11 @@
           <img data-id="S-行政事務技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/4fac482d-3f16-4965-a52c-c9d8ceeb74bc" alt="">
           <img data-id="S-人際交往的技能" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/3d05a2dc-fc8c-435c-b48a-c1f8b3ceed66" alt="">
           <img data-id="S-視覺感知能力" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/26317c30-d3bb-4f78-89e3-239162eca882" alt="">
-
+          </div>
           
         </div>
-        <div data-tag="K">
+        <div data-tag="K" class="group-container" data-group="V">
+          <div class="card" data-id="4">
           <img data-id="K-客戶和個人服務相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/a931f784-69bb-4a14-8885-25abdf029e62" alt="">
           <img data-id="K-歷史與考古相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/9c4a9c7c-b539-43fc-b7ab-91706fcaa917" alt="">
           <img data-id="K-公共安全和保安相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/504f709c-2282-4b72-82ad-e5f8279e6463" alt="">
@@ -192,11 +218,13 @@
           <img data-id="K-教育和培訓相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/c2478419-e1a4-4c37-a5c0-db87f278b627" alt="">
           <img data-id="K-機械相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/677d4138-8cef-4719-a80a-e1df9c5c06ca" alt="">
           <img data-id="K-電子通訊相關知識" src="https://github.com/RaymondLam888/vaskcards/assets/106653257/45a582a7-0acd-45df-9d55-bc6bb05c0b39" alt="">
-
+        </div>
 
         </div>
     </div>
+
   
+
     <div class="footer">
       <button class="submitbtn" onclick="submitSelection()">Submit</button>
       <button class="downloadExcel" onclick="downloadExcel()">Download Excel</button>

@@ -36,34 +36,57 @@ body {
 
 .header{
   position: fixed;
-  height: 20%;
+  height: 10%;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: lightblue;
+  background-image: url(https://github.com/RaymondLam888/vaskcards/assets/106653257/7de349c4-cc7b-40d6-a854-99091ce8da73);  
+  background-size: cover; /* 让背景图片尽可能填充整个区域 */
   padding-top: 20px;
-  padding-bottom: 40px;
   z-index: 1000;
-  display: flex;
-  flex-direction: row;
   position: relative;
 }
 
 .Information{
-  width: 30%;
-  height: 100%;
+  padding-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
 }
 
 .staffNo{
-  padding-top: 120px;
+  width: 10%;
+  padding: 30px;
+  background-color: #fff; /* 更改为白色背景 */
+  border-radius: 20px; /* 添加圆角 */
 }
 
-  .header .label:target {
-    display: inline-block;
-  }
+.logo-container {
+  display: flex; /* 使用Flexbox布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  margin-bottom: 120px;
+}
+
+.logo{
+  max-width: 100%; /* 设置logo的最大宽度为其父容器的100% */
+  height: auto; /* 让logo的高度随宽度自动调整 */
+}
+
+.header .label:target {
+  display: inline-block;
+}
+
+.inputName{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+}
+
+#employeeId{
+  height: 30px;
+  width: 70%;
+}
 
 .ID {
   margin-bottom: 30px;
@@ -79,14 +102,32 @@ body {
   border-radius: 5px;
   font-size: 30px;
   background-color: #fff;
+  width: 100px;
+}
+
+.label.active {
+  background-color: #ffc43a; /* 设置选中按钮的背景颜色 */
+  color: #fff; /* 设置选中按钮的文字颜色为白色 */
 }
 
 #cardContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  position: relative;
-  margin-top: -300px;
+  position: absolute;
+  top: 20px; /* 與 header 保持固定距離 */
+  left: 0;
+  right: 0;
+  padding-bottom: 200px;
+}
+
+#buttonGroups1{
+  background-color: #001f4b;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 10px 800px;
 }
 
 .card {
@@ -111,28 +152,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  padding: 0 10px;
+  padding-bottom: 10px;
 }
 
 .selectedImagesArea{
   width: 70%;
   height: 100%;
-  background-color: lightblue;
   display: flex;
   justify-content: center;
 }
 
 .selectedImagesArea h2{
-  font-size: 30px;
-  padding: 20px 0;
-}
-
-#selectedImagesContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px; 
-  justify-content: center;
-  max-width: 100%; 
+  font-size: 40px;
+  font-weight: 800;
+  color: #ffffff;
+  padding-bottom: 40px;
 }
 
 .selectedImage {
@@ -146,27 +180,16 @@ body {
   object-fit: cover; 
 }
 
-.removeImageBtn {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 5px;
-  border-radius: 50%;
-  font-size: 12px;
-  line-height: 0.7;
-  z-index: 2; 
-}
-
-.footer{
+.footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  align-content: center;
-  background-color: lightblue;
+  background-image: url(https://github.com/RaymondLam888/vaskcards/assets/106653257/7de349c4-cc7b-40d6-a854-99091ce8da73);  
+  background-size: cover; /* 让背景图片尽可能填充整个区域 */
   padding-top: 30px;
   padding-bottom: 60px;
 }
