@@ -41,7 +41,7 @@ body {
   left: 0;
   width: 100%;
   background-image: url(https://github.com/RaymondLam888/vaskcards/assets/106653257/7de349c4-cc7b-40d6-a854-99091ce8da73);  
-  background-size: cover; /* 让背景图片尽可能填充整个区域 */
+  background-size: cover; 
   padding-top: 20px;
   z-index: 1000;
   position: relative;
@@ -56,20 +56,20 @@ body {
 .staffNo{
   width: 10%;
   padding: 30px;
-  background-color: #fff; /* 更改为白色背景 */
-  border-radius: 20px; /* 添加圆角 */
+  background-color: #fff; 
+  border-radius: 20px; 
 }
 
 .logo-container {
-  display: flex; /* 使用Flexbox布局 */
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
   margin-bottom: 120px;
 }
 
 .logo{
-  max-width: 100%; /* 设置logo的最大宽度为其父容器的100% */
-  height: auto; /* 让logo的高度随宽度自动调整 */
+  max-width: 100%; 
+  height: auto;
 }
 
 .header .label:target {
@@ -106,8 +106,8 @@ body {
 }
 
 .label.active {
-  background-color: #ffc43a; /* 设置选中按钮的背景颜色 */
-  color: #fff; /* 设置选中按钮的文字颜色为白色 */
+  background-color: #ffc43a; 
+  color: #fff; 
 }
 
 #cardContainer {
@@ -115,7 +115,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   position: absolute;
-  top: 20px; /* 與 header 保持固定距離 */
+  top: 20px; 
   left: 0;
   right: 0;
   padding-bottom: 200px;
@@ -189,7 +189,7 @@ body {
   align-items: center;
   justify-content: center;
   background-image: url(https://github.com/RaymondLam888/vaskcards/assets/106653257/7de349c4-cc7b-40d6-a854-99091ce8da73);  
-  background-size: cover; /* 让背景图片尽可能填充整个区域 */
+  background-size: cover; 
   padding-top: 30px;
   padding-bottom: 60px;
 }
