@@ -4,26 +4,26 @@ let cardSelectionStatus = {};
 
 
 function showCards(tag, showOnlyCurrentGroup = false) {
-    hideAllCards(); // 隱藏所有卡片
-    restoreSelectedCards(); // 恢復已選卡片的顯示
+    hideAllCards();
+    restoreSelectedCards();
 
     const imagesContainer = document.getElementById('images');
     const selectedCards = imagesContainer.querySelector(`[data-tag="${tag}"]`);
     if (selectedCards) {
-        clearSelectedImages(); // 清除已選圖像
+        clearSelectedImages(); 
 
         const cardContainer = document.getElementById('cardContainer');
-        cardContainer.innerHTML = ''; // 清空卡片容器，準備顯示新組合的卡片
+        cardContainer.innerHTML = ''; 
 
         selectedCards.querySelectorAll('img').forEach(img => {
             const card = createCard(img.src, img.alt, img.dataset.id, selectedCards.dataset.group);
-            cardContainer.appendChild(card); // 添加新組合的卡片到容器中
+            cardContainer.appendChild(card); 
         });
 
-        markSelectedCardsByGroup(tag); // 標記當前組合的已選卡片
+        markSelectedCardsByGroup(tag); 
 
         if (showOnlyCurrentGroup) {
-            hideNonCurrentGroupSelectedCards(tag); // 隱藏非當前組合的已選卡片
+            hideNonCurrentGroupSelectedCards(tag); 
         }
     }
 }
@@ -35,13 +35,13 @@ function showCards(tag, showOnlyCurrentGroup = false) {
 
 function markSelectedCardsByGroup(group) {
     const selectedImagesContainer = document.getElementById('selectedImagesContainer');
-    selectedImagesContainer.innerHTML = ''; // 清除當前組合的已選卡片
+    selectedImagesContainer.innerHTML = ''; 
 
     selectedCardIds.forEach(cardId => {
         const card = document.querySelector(`#cardContainer .card[data-id="${cardId}"]`);
         if (card && card.dataset.group === group) {
             const selectedImage = createSelectedImage(card.querySelector('img').src, cardId);
-            selectedImagesContainer.appendChild(selectedImage); // 只新增當前組合的已選卡片
+            selectedImagesContainer.appendChild(selectedImage); 
         }
     });
 }
@@ -111,7 +111,7 @@ let selectedCardCountsPerGroup = {
 
 function toggleCardSelection(card) {
     const id = card.dataset.id;
-    const group = id.split('-')[0]; // 從卡片ID中獲取組別
+    const group = id.split('-')[0]; 
     console.log(`Group: ${group}, Max limit: ${maxSelectedCardsPerGroup[group]}, Current count: ${selectedCardCountsPerGroup[group]}`);
 
     if (selectedCardIds.has(id)) {
@@ -135,7 +135,7 @@ function toggleCardSelection(card) {
     adjustPadding();
 
     setActiveButton(group);
-    markSelectedCardsByGroup(group); // 更新顯示當前組別的已選卡片
+    markSelectedCardsByGroup(group);
     hideNonCurrentGroupSelectedCards(group);
 }
 
@@ -174,17 +174,14 @@ function displayCardsByGroup(groupId) {
 function displaySelectedCardsForCurrentGroup() {
     const currentGroup = getCurrentGroup();
 
-    // 清空已選卡片容器
     const selectedImagesContainer = document.getElementById('selectedImagesContainer');
     selectedImagesContainer.innerHTML = '';
 
-    // 獲取當前組合下的已選卡片
     const selectedCards = Array.from(selectedCardIds).filter(cardId => {
         const [group] = cardId.split('-');
         return group === currentGroup;
     });
 
-    // 顯示當前組合下的已選卡片
     selectedCards.forEach(cardId => {
         const card = document.querySelector(`#cardContainer .card[data-id="${cardId}"]`);
         if (card) {
@@ -308,23 +305,18 @@ function isNumeric(value) {
 function submitSelection() {
     let isValidSelection = true;
 
-    // 檢查是否填寫了姓名
     const name = document.getElementById('employeeId').value.trim();
     if (name === '') {
         alert('請填寫您的姓名。');
         isValidSelection = false;
         return;
     }
-
-    // 檢查是否填寫了職員編號
     const number = document.getElementById('employeeNumber').value.trim();
     if (number === '') {
         alert('請填寫您的職員編號。');
         isValidSelection = false;
         return;
     }
-
-    // 檢查VASK組合中是否有選擇卡片
     const selectedCardIdsArray = Array.from(selectedCardIds);
     const selectedGroups = selectedCardIdsArray.map(id => id.split('-')[0]);
     const hasVASKSelection = selectedGroups.includes('V') && selectedGroups.includes('A') &&
@@ -336,7 +328,6 @@ function submitSelection() {
         return;
     }
 
-    // 檢查職員編號是否只包含數字
     if (!/^\d+$/.test(number)) {
         alert('職員編號只能包含數字。');
         isValidSelection = false;
