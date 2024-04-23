@@ -76,14 +76,16 @@ body {
   display: inline-block;
 }
 
-.inputName{
+.inputName,.inputNumber{
   display: flex;
   justify-content: space-between;
   align-items: center;
   bottom: 0;
+  margin-top: 5px;
 }
 
-#employeeId{
+#employeeId, #employeeNumber{
+  margin-top: 5px;
   height: 30px;
   width: 70%;
 }
