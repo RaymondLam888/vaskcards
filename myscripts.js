@@ -1,17 +1,29 @@
 let selectedCardIds = new Set();
 
+let selectedCardCountsPerGroup = {
+    'V': 0,
+    'A': 0,
+    'S': 0,
+    'K': 0
+};
+let maxSelectedCardsPerGroup = {
+    'V': 4,
+    'A': 4,
+    'S': 4,
+    'K': 4
+};
+
 let cardSelectionStatus = {};
 
 
 function showCards(tag, showOnlyCurrentGroup = false) {
-    hideAllCards();
-    restoreSelectedCards();
+    hideAllCards(); 
+    restoreSelectedCards(); 
 
     const imagesContainer = document.getElementById('images');
     const selectedCards = imagesContainer.querySelector(`[data-tag="${tag}"]`);
     if (selectedCards) {
         clearSelectedImages(); 
-
         const cardContainer = document.getElementById('cardContainer');
         cardContainer.innerHTML = ''; 
 
@@ -25,19 +37,19 @@ function showCards(tag, showOnlyCurrentGroup = false) {
         if (showOnlyCurrentGroup) {
             hideNonCurrentGroupSelectedCards(tag); 
         }
+        displaySelectedCardsForCurrentGroup(); 
     }
 }
-
-
-
-
 
 
 function markSelectedCardsByGroup(group) {
     const selectedImagesContainer = document.getElementById('selectedImagesContainer');
     selectedImagesContainer.innerHTML = ''; 
 
-    selectedCardIds.forEach(cardId => {
+    const orderedSelectedCardIds = Array.from(selectedCardIds)
+        .sort((a, b) => parseInt(a.split('-')[1]) - parseInt(b.split('-')[1]));
+
+    orderedSelectedCardIds.forEach(cardId => {
         const card = document.querySelector(`#cardContainer .card[data-id="${cardId}"]`);
         if (card && card.dataset.group === group) {
             const selectedImage = createSelectedImage(card.querySelector('img').src, cardId);
@@ -48,22 +60,6 @@ function markSelectedCardsByGroup(group) {
 
 
 
-function clearSelectedImages() {
-    const selectedImagesContainer = document.getElementById('selectedImagesContainer');
-    selectedImagesContainer.innerHTML = '';
-}
-
-function hideNonCurrentGroupSelectedCards(groupId) {
-    const cardContainer = document.getElementById('cardContainer');
-    const allCards = cardContainer.querySelectorAll('.card');
-    allCards.forEach(card => {
-        const id = card.dataset.id;
-        const group = id.split('-')[0];
-        if (selectedCardIds.has(id) && group !== groupId) {
-            card.style.display = 'none';
-        }
-    });
-}
 
 function createCard(src, alt, id, group) {
     const card = document.createElement('div');
@@ -94,25 +90,12 @@ function hideAllCards() {
     });
 }
 
-const maxSelectedCardsPerGroup = {
-    'V': 4,
-    'A': 4,
-    'S': 4,
-    'K': 4
-};
 
-let selectedCardCountsPerGroup = {
-    'V': 0,
-    'A': 0,
-    'S': 0,
-    'K': 0
-};
 
 
 function toggleCardSelection(card) {
     const id = card.dataset.id;
     const group = id.split('-')[0]; 
-    console.log(`Group: ${group}, Max limit: ${maxSelectedCardsPerGroup[group]}, Current count: ${selectedCardCountsPerGroup[group]}`);
 
     if (selectedCardIds.has(id)) {
         selectedCardIds.delete(id);
@@ -129,16 +112,13 @@ function toggleCardSelection(card) {
         }
     }
 
-    console.log(`Selected card IDs: ${Array.from(selectedCardIds).join(', ')}`);
-
     updateSelectedImagesDisplay();
     adjustPadding();
 
     setActiveButton(group);
-    markSelectedCardsByGroup(group);
+    markSelectedCardsByGroup(group); 
     hideNonCurrentGroupSelectedCards(group);
 }
-
 
 
 
@@ -146,11 +126,11 @@ function toggleCardSelection(card) {
 function setActiveButton(button) {
     const allButtons = document.querySelectorAll('.label');
     allButtons.forEach(btn => {
-      btn.classList.remove('active');
+        btn.classList.remove('active');
     });
-  
     button.classList.add('active');
-  }
+}
+
   
 
 function clearCardContainer() {
@@ -171,48 +151,48 @@ function displayCardsByGroup(groupId) {
     }
 }
 
-function displaySelectedCardsForCurrentGroup() {
-    const currentGroup = getCurrentGroup();
-
-    const selectedImagesContainer = document.getElementById('selectedImagesContainer');
-    selectedImagesContainer.innerHTML = '';
-
-    const selectedCards = Array.from(selectedCardIds).filter(cardId => {
-        const [group] = cardId.split('-');
-        return group === currentGroup;
-    });
-
-    selectedCards.forEach(cardId => {
-        const card = document.querySelector(`#cardContainer .card[data-id="${cardId}"]`);
-        if (card) {
-            const selectedImage = createSelectedImage(card.querySelector('img').src, cardId);
-            selectedImagesContainer.appendChild(selectedImage);
-        }
-    });
-}
-
-
-
 
 function switchGroup(groupId) {
+    console.log('Switching to group:', groupId);
+
     saveSelectedCardsState();
 
     clearCardContainer();
 
     showCards(groupId, true);
 
-    reapplySelectedState();
+    reapplySelectedState(); 
 
     updateMaxSelectedCardsPerGroup();
 
     validateSelectedCount(groupId);
 
-    displaySelectedCardsForCurrentGroup(); // Display selected cards for the current group
+    displaySelectedCardsForCurrentGroup(); 
 
     hideNonCurrentGroupSelectedCards(groupId);
 }
 
 
+
+function clearSelectedImages() {
+    const selectedImagesContainer = document.getElementById('selectedImagesContainer');
+    selectedImagesContainer.innerHTML = '';
+}
+
+function hideNonCurrentGroupSelectedCards(groupId) {
+    const cardContainer = document.getElementById('cardContainer');
+    const allCards = cardContainer.querySelectorAll('.card');
+    allCards.forEach(card => {
+        const id = card.dataset.id;
+        const group = id.split('-')[0];
+        if (selectedCardIds.has(id) && group !== groupId) {
+            card.style.display = 'none';
+        }
+    });
+
+    // Display selected cards for the current group before hiding non-current group cards
+    displaySelectedCardsForCurrentGroup();
+}
 
 
 
@@ -225,19 +205,6 @@ function resetSelectionStatus() {
     });
 }
 
-
-function reapplySelectedState() {
-    const cardContainer = document.getElementById('cardContainer');
-    const allCards = cardContainer.querySelectorAll('.card');
-    allCards.forEach(card => {
-        const id = card.dataset.id;
-        if (selectedCardIds.has(id)) {
-            card.classList.add('selected');
-        }
-    });
-}
-
-
 function saveSelectedCardsState() {
     selectedCardIds.clear();
 
@@ -247,11 +214,25 @@ function saveSelectedCardsState() {
         const id = card.dataset.id;
         if (card.classList.contains('selected')) {
             selectedCardIds.add(id);
-            cardSelectionStatus[id] = true; 
+            cardSelectionStatus[id] = true;
+        } else {
+            cardSelectionStatus[id] = false;
         }
     });
 }
 
+function reapplySelectedState() {
+    const cardContainer = document.getElementById('cardContainer');
+    const allCards = cardContainer.querySelectorAll('.card');
+    allCards.forEach(card => {
+        const id = card.dataset.id;
+        if (selectedCardIds.has(id)) {
+            card.classList.add('selected');
+        } else {
+            card.classList.remove('selected');
+        }
+    });
+}
 
 
 function updateMaxSelectedCardsPerGroup() {
@@ -309,14 +290,14 @@ function submitSelection() {
     if (name === '') {
         alert('請填寫您的姓名。');
         isValidSelection = false;
-        return;
     }
+
     const number = document.getElementById('employeeNumber').value.trim();
     if (number === '') {
         alert('請填寫您的職員編號。');
         isValidSelection = false;
-        return;
     }
+
     const selectedCardIdsArray = Array.from(selectedCardIds);
     const selectedGroups = selectedCardIdsArray.map(id => id.split('-')[0]);
     const hasVASKSelection = selectedGroups.includes('V') && selectedGroups.includes('A') &&
@@ -325,13 +306,11 @@ function submitSelection() {
     if (!hasVASKSelection) {
         alert('在VASK組合中，每個分組至少需要選擇一張卡片。');
         isValidSelection = false;
-        return;
     }
 
     if (!/^\d+$/.test(number)) {
         alert('職員編號只能包含數字。');
         isValidSelection = false;
-        return;
     }
 
     if (!isValidSelection) {
@@ -341,10 +320,23 @@ function submitSelection() {
     console.log('姓名:', name);
     console.log('職員編號:', number);
 
+    const selectedCardsData = {
+        'V': [],
+        'A': [],
+        'S': [],
+        'K': []
+    };
+
+    selectedCardIdsArray.forEach(cardId => {
+        const group = cardId.split('-')[0];
+        const cardName = cardId.substring(group.length + 1); 
+        selectedCardsData[group].push(cardName);
+    });
+
     const dataToSave = {
         employeeId: name,
         employeeNumber: number,
-        selectedCardIds: selectedCardIdsArray
+        selectedCards: selectedCardsData
     };
 
     const database = firebase.database();
@@ -352,6 +344,7 @@ function submitSelection() {
         .then(() => {
             console.log('數據成功保存到Firebase。');
             resetPage();
+            alert('已提交');
         })
         .catch((error) => {
             console.error('保存數據到Firebase時出錯:', error);
@@ -364,8 +357,21 @@ function submitSelection() {
 
 function adjustPadding() {
     const headerHeight = document.querySelector('.header').offsetHeight;
-    const distance = 20;
+    const distance = 20; 
     document.getElementById('cardContainer').style.paddingTop = `${headerHeight + distance}px`;
+}
+
+function displaySelectedCardsForCurrentGroup() {
+    const selectedImagesContainer = document.getElementById('selectedImagesContainer');
+    selectedImagesContainer.innerHTML = '';
+
+    selectedCardIds.forEach(cardId => {
+        const card = document.querySelector(`#cardContainer [data-id="${cardId}"]`);
+        if (card) {
+            const selectedImage = createSelectedImage(card.querySelector('img').src, cardId);
+            selectedImagesContainer.appendChild(selectedImage);
+        }
+    });
 }
 
 function updateSelectedImagesDisplay() {
@@ -381,23 +387,18 @@ function updateSelectedImagesDisplay() {
     });
 }
 
-function createSelectedImage(src, id) {
-    const selectedImage = document.createElement('div');
-    selectedImage.classList.add('selectedImage');
-    selectedImage.dataset.id = id;
+function createSelectedImage(src, cardId) {
+    const selectedImageContainer = document.createElement('div');
+    selectedImageContainer.classList.add('selectedImage');
 
-    const imageElement = document.createElement('img');
-    imageElement.src = src;
-    imageElement.alt = 'Selected Image';
+    const image = document.createElement('img');
+    image.src = src;
 
-    selectedImage.appendChild(imageElement);
+    selectedImageContainer.appendChild(image);
 
-    selectedImage.addEventListener('click', function () {
-        removeSelectedImage(id);
-    });
-
-    return selectedImage;
+    return selectedImageContainer;
 }
+
 
 function removeSelectedImage(id) {
     if (selectedCardIds.has(id)) {
@@ -536,11 +537,6 @@ function downloadExcel() {
     XLSX.writeFile(wb, 'selection_data.xlsx');
 }
 
-window.onload = function() {
-    resetPage();
-    showCards('initialGroup');
-};
-
 function resetPage() {
     document.getElementById('employeeId').value = '';
     document.getElementById('employeeNumber').value = '';
@@ -560,3 +556,78 @@ function resetPage() {
     clearSelectedImages();
     hideAllCards();
 }
+
+function syncFirebaseDataToSheet() {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName("工作表1"); 
+  
+    var url = "https://vask-a314e-default-rtdb.firebaseio.com/selections.json"; 
+  
+    var response = UrlFetchApp.fetch(url);
+    var data = JSON.parse(response.getContentText());
+  
+    var rows = [];
+  
+    for (var selectionKey in data) {
+      if (data.hasOwnProperty(selectionKey)) {
+        var selectionData = data[selectionKey];
+  
+        var row = [];
+  
+        row.push(selectionKey);
+  
+        row.push(selectionData.employeeId);
+        row.push(selectionData.employeeNumber);
+  
+        var vCards = [];
+        var aCards = [];
+        var sCards = [];
+        var kCards = [];
+  
+        selectionData.selectedCardIds.forEach(cardId => {
+            var groupName = cardId.split('-')[0]; 
+            var cardName = cardId.substring(groupName.length + 1); 
+            
+            switch (groupName) {
+              case 'V':
+                vCards.push(cardName);
+                break;
+              case 'A':
+                aCards.push(cardName);
+                break;
+              case 'S':
+                sCards.push(cardName);
+                break;
+              case 'K':
+                kCards.push(cardName);
+                break;
+              default:
+                break;
+            }
+        });
+  
+        row.push(vCards.join(', '));
+        row.push(aCards.join(', '));
+        row.push(sCards.join(', '));
+        row.push(kCards.join(', '));
+  
+        rows.push(row);
+      }
+    }
+  
+    sheet.clear();
+  
+    sheet.getRange(1, 1, rows.length, 7).setValues(rows); 
+  
+    sheet.getRange(1, 1, 1, 7).setValues([['ID', 'Employee ID', 'Employee Number', 
+      'V Cards', 'A Cards', 'S Cards', 'K Cards']]);
+    sheet.setFrozenRows(1);
+  }
+
+
+  
+
+window.onload = function() {
+    resetPage();
+    showCards('initialGroup');
+};
